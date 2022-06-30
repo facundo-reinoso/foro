@@ -1,0 +1,18 @@
+version: '2'
+services:
+  db:
+    image: mysql:latest
+    container_name: db
+    volumes:
+      - "./docker_compose/database/db:/var/lib/mysql"
+      - "./src/main/resources/migrations/:/docker-entrypoint-initdb.d/:ro"
+      #- "./docker_compose/database/logs:/var/log/mysql"
+    #restart: always
+    #command: mysqld --general-log=1 --general-log-file=/var/log/mysql/general-log.log
+    ports:
+      - 3307:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_DATABASE: poc_users_db
+      MYSQL_USER: poc_users
+      MYSQL_PASSWORD: poc_users_pass
