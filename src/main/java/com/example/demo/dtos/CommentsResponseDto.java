@@ -7,6 +7,7 @@ public class CommentsResponseDto {
     public Long commentId;
     public Long parentId;
     public Long userId;
+    public String userName;
     public String message;
     public LocalDateTime creationDate;
     public Long status;

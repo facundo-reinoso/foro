@@ -46,6 +46,7 @@ public class CommentsController {
             CommentsEntity comment = new CommentsEntity();
 
             comment.setUserId(Long.valueOf(context.getUserId()));
+            comment.setUserName(context.getUserName());
             comment.setParentId(commentsDto.parentId);
             comment.setMessage(commentsDto.message);
             comment.setCreationDate(LocalDateTime.now());
@@ -87,6 +88,7 @@ public class CommentsController {
     }
 
     @DeleteMapping("/{id}")
+    @CrossOrigin(origins = "*")
     public ResponseEntity<String> deleteComment(@PathVariable("id") Long id) {
         log.info("Request from user: "+ context.getUserId() +" to delete the comment with id: "+ id);
 
@@ -111,6 +113,7 @@ public class CommentsController {
     }
 
     @PutMapping("/{id}")
+    @CrossOrigin(origins = "*")
     public ResponseEntity<String> modifyComment(@PathVariable("id") Long id, @Valid @RequestBody CommentsEditDto commentsDto) {
         log.info("Request from user: "+ context.getUserId() +" to modify the comment with id: "+ id);
 

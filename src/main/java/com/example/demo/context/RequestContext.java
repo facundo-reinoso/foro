@@ -16,6 +16,8 @@ import java.util.Collection;
 public class RequestContext implements Context {
     private LocalDateTime created;
     private String userId;
+
+    private String userName;
     private Collection roles;
 
     public LocalDateTime getCreated() {
@@ -27,6 +29,7 @@ public class RequestContext implements Context {
         return userId;
     }
 
+    public String getUserName(){ return userName; }
 
     public Collection getRoles() {
         return roles;
@@ -36,6 +39,7 @@ public class RequestContext implements Context {
         SecurityContext context = SecurityContextHolder.getContext();
         created = LocalDateTime.now();
         userId = context.getAuthentication().getCredentials().toString();
+        userName = context.getAuthentication().getName();
         roles = context.getAuthentication().getAuthorities();
     }
 

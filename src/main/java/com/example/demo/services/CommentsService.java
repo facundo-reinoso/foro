@@ -68,6 +68,7 @@ public class CommentsService {
                 CommentsResponseDto responseComment = new CommentsResponseDto();
                 responseComment.commentId = i.getCommentId();
                 responseComment.userId = i.getUserId();
+                responseComment.userName = i.getUserName();
                 responseComment.parentId = i.getParentId();
                 responseComment.message = i.getMessage();
                 responseComment.creationDate = i.getCreationDate();

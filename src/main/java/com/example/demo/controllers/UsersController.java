@@ -95,6 +95,7 @@ public class UsersController {
     }
 
     @PutMapping("rol")
+    @CrossOrigin(origins = "*")
     public ResponseEntity<?> changeRol(@RequestBody UserChangeRolDto userChangeRolDto) {
         try {
             if (!context.hasRole("Admin")) {

@@ -7,5 +7,5 @@ CREATE TABLE IF NOT EXISTS users (
     username varchar(50) NOT NULL,
     password varchar(20)  NOT NULL,
     status tinyint(1) NOT NULL,
-    id_role bigint NOT NULL1
+    id_role bigint NOT NULL
 );
